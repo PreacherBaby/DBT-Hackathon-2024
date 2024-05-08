@@ -5,3 +5,4 @@
     SELECT CONVERT_TIMEZONE({{ target_tz }}, TO_TIMESTAMP({{ source_timestamp }}, {{ source_tz }})) AS converted_timestamp;
 {% endif %}
 {% endmacro %}
+
