@@ -3,6 +3,7 @@
    {%- call statement('inserted_values', fetch_result=true) %}  
      
                    SELECT table_name FROM information_schema.tables WHERE table_name like 'PIZZA_%' 
+                   AND table_schema = 'DATA_SAMPLE'
                    
  {%- endcall -%}
   
