@@ -1,0 +1,1 @@
+SELECT * FROM pizza_order_item_toppings

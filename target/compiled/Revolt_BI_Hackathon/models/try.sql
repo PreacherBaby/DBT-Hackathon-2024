@@ -1,0 +1,1 @@
+SELECT * FROM data_sample.pizza_customers

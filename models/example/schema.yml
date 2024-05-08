@@ -5,7 +5,7 @@ models:
   - name: my_first_dbt_model
     description: "A starter dbt model"
     config:
-      materialized: ephemeral
+      materialized: table
     columns:
       - name: id
         description: "The primary key for this table"
@@ -16,10 +16,23 @@ models:
   - name: my_second_dbt_model
     description: "A starter dbt model"
     config:
-      materialized: ephemeral
+      materialized: table
     columns:
       - name: id
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
+
+  - name: my_table
+    columns:
+      - name: column1
+        description: Description of column1
+        tests:
+          - not_null
+      - name: column2
+        description: Description of column2
+    description: Description of my_table
+    materialized: view
+    sql:
+      - SELECT * FROM snowflake_schema.my_table

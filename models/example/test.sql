@@ -1,0 +1,1 @@
+{{create_table('pizza_orders') }}
