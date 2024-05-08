@@ -2433,3 +2433,1028 @@ FROM data_sample.PIZZA_ORDERS ;
 [0m12:15:43.509589 [debug] [MainThread]: Connection 'debug' was properly closed.
 [0m12:15:43.510214 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f061a9e53a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f05f0eb0500>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f061b84acc0>]}
 [0m12:15:43.510956 [debug] [MainThread]: Flushing usage events
+[0m13:30:24.997631 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdf01572570>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdf01839eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdf01571c70>]}
+
+
+============================== 13:30:25.001847 | 3586313b-011e-4694-8b51-b8b373d1694c ==============================
+[0m13:30:25.001847 [info ] [MainThread]: Running with dbt=1.7.14
+[0m13:30:25.002814 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_rder_items"}', 'send_anonymous_usage_stats': 'True'}
+[0m13:30:26.496904 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3586313b-011e-4694-8b51-b8b373d1694c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdf015993d0>]}
+[0m13:30:26.571280 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3586313b-011e-4694-8b51-b8b373d1694c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdf0191ed80>]}
+[0m13:30:26.572654 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m13:30:26.581166 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m13:30:26.610034 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m13:30:26.610969 [debug] [MainThread]: Partial parsing: added file: Revolt_BI_Hackathon://macros/mark_columns.sql
+[0m13:30:26.611597 [debug] [MainThread]: Partial parsing: deleted file: Revolt_BI_Hackathon://macros/emptycol.sql
+[0m13:30:26.631201 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3586313b-011e-4694-8b51-b8b373d1694c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fded0d6e630>]}
+[0m13:30:26.640213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3586313b-011e-4694-8b51-b8b373d1694c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdecbf5a720>]}
+[0m13:30:26.640982 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 434 macros, 0 groups, 0 semantic models
+[0m13:30:26.641611 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3586313b-011e-4694-8b51-b8b373d1694c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fded0150b30>]}
+[0m13:30:26.642715 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m13:30:26.659186 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m13:30:26.660034 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT column_name, 
+           COUNT(*) AS total_rows,
+           COUNT() AS filled_rows,
+           (COUNT() * 100.0) / COUNT(*) AS fill_rate
+    FROM data_sample.pizza_rder_items
+    GROUP BY column_name;
+[0m13:30:26.660663 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:30:27.021651 [debug] [MainThread]: Snowflake adapter: Snowflake query id: 01b4310a-0202-a845-0002-461e0016a206
+[0m13:30:27.022359 [debug] [MainThread]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'HACKATHON.DATA_SAMPLE.PIZZA_RDER_ITEMS' does not exist or not authorized.
+[0m13:30:27.023187 [debug] [MainThread]: Snowflake adapter: Error running SQL: macro mark_columns
+[0m13:30:27.023754 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m13:30:27.024400 [debug] [MainThread]: On macro_mark_columns: Close
+[0m13:30:27.093327 [error] [MainThread]: Encountered an error while running operation: Database Error
+  002003 (42S02): SQL compilation error:
+  Object 'HACKATHON.DATA_SAMPLE.PIZZA_RDER_ITEMS' does not exist or not authorized.
+[0m13:30:27.097402 [debug] [MainThread]: Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 291, in exception_handler
+    yield
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 80, in add_query
+    cursor.execute(sql, bindings)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 002003 (42S02): SQL compilation error:
+Object 'HACKATHON.DATA_SAMPLE.PIZZA_RDER_ITEMS' does not exist or not authorized.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 58, in run
+    self._run_unsafe(package_name, macro_name)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 43, in _run_unsafe
+    res = adapter.execute_macro(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1112, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 39, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 310, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 472, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 507, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 563, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 483, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 66, in add_query
+    with self.exception_handler(sql):
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 317, in exception_handler
+    raise DbtDatabaseError(msg)
+dbt.exceptions.DbtDatabaseError: Database Error
+  002003 (42S02): SQL compilation error:
+  Object 'HACKATHON.DATA_SAMPLE.PIZZA_RDER_ITEMS' does not exist or not authorized.
+
+[0m13:30:27.100134 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_wall_clock_time": 2.1618633, "process_user_time": 3.728634, "process_kernel_time": 0.580721, "process_mem_max_rss": "196796", "process_in_blocks": "371744", "process_out_blocks": "1808", "command_success": false}
+[0m13:30:27.100970 [debug] [MainThread]: Command `dbt run-operation` failed at 13:30:27.100755 after 2.16 seconds
+[0m13:30:27.101540 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m13:30:27.102100 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdf019f96a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdecbf8f7d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fded0195460>]}
+[0m13:30:27.102752 [debug] [MainThread]: Flushing usage events
+[0m13:30:42.250388 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8a17a86f00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8a17af2780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8a17e03ad0>]}
+
+
+============================== 13:30:42.254015 | f1405d03-8a8a-4ae2-8d2e-4f74aa09e8a1 ==============================
+[0m13:30:42.254015 [info ] [MainThread]: Running with dbt=1.7.14
+[0m13:30:42.255103 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_order_items"}', 'send_anonymous_usage_stats': 'True'}
+[0m13:30:43.178373 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f1405d03-8a8a-4ae2-8d2e-4f74aa09e8a1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f89e2351220>]}
+[0m13:30:43.262565 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f1405d03-8a8a-4ae2-8d2e-4f74aa09e8a1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f89e841f440>]}
+[0m13:30:43.263687 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m13:30:43.272301 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m13:30:43.299680 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:30:43.300532 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:30:43.307536 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f1405d03-8a8a-4ae2-8d2e-4f74aa09e8a1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f89e21bf740>]}
+[0m13:30:43.317219 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f1405d03-8a8a-4ae2-8d2e-4f74aa09e8a1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f89e2266840>]}
+[0m13:30:43.317918 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 434 macros, 0 groups, 0 semantic models
+[0m13:30:43.318574 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f1405d03-8a8a-4ae2-8d2e-4f74aa09e8a1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8a17aa4c20>]}
+[0m13:30:43.319598 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m13:30:43.333818 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m13:30:43.334419 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT column_name, 
+           COUNT(*) AS total_rows,
+           COUNT() AS filled_rows,
+           (COUNT() * 100.0) / COUNT(*) AS fill_rate
+    FROM data_sample.pizza_order_items
+    GROUP BY column_name;
+[0m13:30:43.335071 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:30:43.687981 [debug] [MainThread]: Snowflake adapter: Snowflake query id: 01b4310a-0202-a845-0002-461e0016a216
+[0m13:30:43.688720 [debug] [MainThread]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+[0m13:30:43.689476 [debug] [MainThread]: Snowflake adapter: Error running SQL: macro mark_columns
+[0m13:30:43.690075 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m13:30:43.690783 [debug] [MainThread]: On macro_mark_columns: Close
+[0m13:30:43.764828 [error] [MainThread]: Encountered an error while running operation: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+[0m13:30:43.768913 [debug] [MainThread]: Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 291, in exception_handler
+    yield
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 80, in add_query
+    cursor.execute(sql, bindings)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 58, in run
+    self._run_unsafe(package_name, macro_name)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 43, in _run_unsafe
+    res = adapter.execute_macro(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1112, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 39, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 310, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 472, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 507, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 563, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 483, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 66, in add_query
+    with self.exception_handler(sql):
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 317, in exception_handler
+    raise DbtDatabaseError(msg)
+dbt.exceptions.DbtDatabaseError: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+
+[0m13:30:43.771294 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_wall_clock_time": 1.5746586, "process_user_time": 3.615305, "process_kernel_time": 0.487226, "process_mem_max_rss": "196732", "process_out_blocks": "928", "command_success": false, "process_in_blocks": "0"}
+[0m13:30:43.772140 [debug] [MainThread]: Command `dbt run-operation` failed at 13:30:43.771915 after 1.58 seconds
+[0m13:30:43.772737 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m13:30:43.773332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8a179ef080>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f89e2299610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f89e21f0f50>]}
+[0m13:30:43.774170 [debug] [MainThread]: Flushing usage events
+[0m13:31:41.138925 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19a1cd0b30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19a20d9670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19a1f97560>]}
+
+
+============================== 13:31:41.143010 | 6e98e622-67ab-4ad1-80fb-c2f4f0b48c90 ==============================
+[0m13:31:41.143010 [info ] [MainThread]: Running with dbt=1.7.14
+[0m13:31:41.143797 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_order_items"}', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:31:42.121114 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6e98e622-67ab-4ad1-80fb-c2f4f0b48c90', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1970abaed0>]}
+[0m13:31:42.198993 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6e98e622-67ab-4ad1-80fb-c2f4f0b48c90', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1972eefc80>]}
+[0m13:31:42.200138 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m13:31:42.208602 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m13:31:42.237498 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:31:42.238378 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:31:42.245427 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6e98e622-67ab-4ad1-80fb-c2f4f0b48c90', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1970b58830>]}
+[0m13:31:42.256286 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '6e98e622-67ab-4ad1-80fb-c2f4f0b48c90', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19707b2ba0>]}
+[0m13:31:42.257015 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 433 macros, 0 groups, 0 semantic models
+[0m13:31:42.257640 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6e98e622-67ab-4ad1-80fb-c2f4f0b48c90', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19a2dd91f0>]}
+[0m13:31:42.258805 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m13:31:42.273793 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m13:31:42.274441 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT column_name, 
+           COUNT(*) AS total_rows,
+           COUNT() AS filled_rows,
+           (COUNT() * 100.0) / COUNT(*) AS fill_rate
+    FROM data_sample.pizza_order_items
+    GROUP BY column_name;
+[0m13:31:42.275103 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:31:42.582418 [debug] [MainThread]: Snowflake adapter: Snowflake query id: 01b4310b-0202-a84a-0002-461e00166fe6
+[0m13:31:42.583197 [debug] [MainThread]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+[0m13:31:42.583953 [debug] [MainThread]: Snowflake adapter: Error running SQL: macro mark_columns
+[0m13:31:42.584533 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m13:31:42.585105 [debug] [MainThread]: On macro_mark_columns: Close
+[0m13:31:42.649121 [error] [MainThread]: Encountered an error while running operation: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+[0m13:31:42.653005 [debug] [MainThread]: Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 291, in exception_handler
+    yield
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 80, in add_query
+    cursor.execute(sql, bindings)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 58, in run
+    self._run_unsafe(package_name, macro_name)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 43, in _run_unsafe
+    res = adapter.execute_macro(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1112, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 39, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 310, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 472, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 507, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 563, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 483, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 66, in add_query
+    with self.exception_handler(sql):
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 317, in exception_handler
+    raise DbtDatabaseError(msg)
+dbt.exceptions.DbtDatabaseError: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+
+[0m13:31:42.655344 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_wall_clock_time": 1.5695574, "process_user_time": 3.514223, "process_kernel_time": 0.496314, "process_mem_max_rss": "196972", "process_out_blocks": "928", "command_success": false, "process_in_blocks": "0"}
+[0m13:31:42.656154 [debug] [MainThread]: Command `dbt run-operation` failed at 13:31:42.655946 after 1.57 seconds
+[0m13:31:42.656782 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m13:31:42.657369 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19a2246150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1970ab8950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1970964ad0>]}
+[0m13:31:42.657970 [debug] [MainThread]: Flushing usage events
+[0m13:33:20.941059 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8bb6adee0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8bcacedb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8bb6ad4f0>]}
+
+
+============================== 13:33:20.944616 | d627c319-452e-4df1-91ed-895f237abded ==============================
+[0m13:33:20.944616 [info ] [MainThread]: Running with dbt=1.7.14
+[0m13:33:20.945409 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_order_items"}', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:33:21.870775 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd627c319-452e-4df1-91ed-895f237abded', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc886316480>]}
+[0m13:33:21.945589 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd627c319-452e-4df1-91ed-895f237abded', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc887276a80>]}
+[0m13:33:21.946743 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m13:33:21.955180 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m13:33:21.982064 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:33:21.982782 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:33:21.989524 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd627c319-452e-4df1-91ed-895f237abded', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8b7dd0470>]}
+[0m13:33:21.999683 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd627c319-452e-4df1-91ed-895f237abded', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8862268a0>]}
+[0m13:33:22.000451 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 433 macros, 0 groups, 0 semantic models
+[0m13:33:22.001197 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd627c319-452e-4df1-91ed-895f237abded', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc886533f50>]}
+[0m13:33:22.002306 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m13:33:22.017644 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m13:33:22.018327 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT "column_name", 
+           COUNT(*) AS total_rows,
+           COUNT("") AS filled_rows,
+           (COUNT("") * 100.0) / COUNT(*) AS fill_rate
+    FROM data_sample.pizza_order_items
+    GROUP BY "column_name";
+[0m13:33:22.018946 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:33:22.363751 [debug] [MainThread]: Snowflake adapter: Snowflake query id: 01b4310d-0202-a84a-0002-461e0016d04e
+[0m13:33:22.364514 [debug] [MainThread]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier '"column_name"'
+[0m13:33:22.365287 [debug] [MainThread]: Snowflake adapter: Error running SQL: macro mark_columns
+[0m13:33:22.365855 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m13:33:22.366473 [debug] [MainThread]: On macro_mark_columns: Close
+[0m13:33:22.430734 [error] [MainThread]: Encountered an error while running operation: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier '"column_name"'
+[0m13:33:22.434924 [debug] [MainThread]: Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 291, in exception_handler
+    yield
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 80, in add_query
+    cursor.execute(sql, bindings)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier '"column_name"'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 58, in run
+    self._run_unsafe(package_name, macro_name)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 43, in _run_unsafe
+    res = adapter.execute_macro(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1112, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 39, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 310, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 472, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 507, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 563, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 483, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 66, in add_query
+    with self.exception_handler(sql):
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 317, in exception_handler
+    raise DbtDatabaseError(msg)
+dbt.exceptions.DbtDatabaseError: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier '"column_name"'
+
+[0m13:33:22.437750 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_wall_clock_time": 1.5499169, "process_user_time": 3.567468, "process_kernel_time": 0.449476, "process_mem_max_rss": "196916", "process_out_blocks": "928", "command_success": false, "process_in_blocks": "0"}
+[0m13:33:22.438838 [debug] [MainThread]: Command `dbt run-operation` failed at 13:33:22.438383 after 1.55 seconds
+[0m13:33:22.439546 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m13:33:22.440188 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8bbd630b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8861f1340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc8863dd5b0>]}
+[0m13:33:22.440958 [debug] [MainThread]: Flushing usage events
+[0m13:34:00.715973 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518951e0c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518a017500>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5189539e20>]}
+
+
+============================== 13:34:00.719677 | f307e6dc-444d-4062-bf37-a88f3cedaa82 ==============================
+[0m13:34:00.719677 [info ] [MainThread]: Running with dbt=1.7.14
+[0m13:34:00.720528 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_order_items"}', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m13:34:01.690417 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f307e6dc-444d-4062-bf37-a88f3cedaa82', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f518951e0f0>]}
+[0m13:34:01.767049 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f307e6dc-444d-4062-bf37-a88f3cedaa82', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5153c98ec0>]}
+[0m13:34:01.768209 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m13:34:01.777066 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m13:34:01.813016 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:34:01.813708 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:34:01.820488 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f307e6dc-444d-4062-bf37-a88f3cedaa82', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5153d014c0>]}
+[0m13:34:01.829518 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f307e6dc-444d-4062-bf37-a88f3cedaa82', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5153bb64b0>]}
+[0m13:34:01.830221 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 433 macros, 0 groups, 0 semantic models
+[0m13:34:01.830865 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f307e6dc-444d-4062-bf37-a88f3cedaa82', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f51581b2270>]}
+[0m13:34:01.831883 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m13:34:01.848477 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m13:34:01.849161 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT column_name, 
+           COUNT(*) AS total_rows,
+           COUNT() AS filled_rows,
+           (COUNT() * 100.0) / COUNT(*) AS fill_rate
+    FROM data_sample.pizza_order_items
+    GROUP BY column_name;
+[0m13:34:01.849846 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:34:02.486007 [debug] [MainThread]: Snowflake adapter: Snowflake query id: 01b4310e-0202-a84a-0002-461e0016d07e
+[0m13:34:02.486751 [debug] [MainThread]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+[0m13:34:02.487527 [debug] [MainThread]: Snowflake adapter: Error running SQL: macro mark_columns
+[0m13:34:02.488147 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m13:34:02.488767 [debug] [MainThread]: On macro_mark_columns: Close
+[0m13:34:02.583439 [error] [MainThread]: Encountered an error while running operation: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+[0m13:34:02.587557 [debug] [MainThread]: Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 291, in exception_handler
+    yield
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 80, in add_query
+    cursor.execute(sql, bindings)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 58, in run
+    self._run_unsafe(package_name, macro_name)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 43, in _run_unsafe
+    res = adapter.execute_macro(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1112, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 39, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 310, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 472, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 507, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 563, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 483, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 66, in add_query
+    with self.exception_handler(sql):
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 317, in exception_handler
+    raise DbtDatabaseError(msg)
+dbt.exceptions.DbtDatabaseError: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+
+[0m13:34:02.589970 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_wall_clock_time": 1.9285362, "process_user_time": 3.573842, "process_kernel_time": 0.468965, "process_mem_max_rss": "196828", "process_out_blocks": "936", "command_success": false, "process_in_blocks": "0"}
+[0m13:34:02.590939 [debug] [MainThread]: Command `dbt run-operation` failed at 13:34:02.590691 after 1.93 seconds
+[0m13:34:02.591592 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m13:34:02.592232 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f51897ab9b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5153cc7b30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5153bf3a70>]}
+[0m13:34:02.592881 [debug] [MainThread]: Flushing usage events
+[0m13:36:46.137540 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb84b4aa390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb84d8cdc70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb84c5b0fb0>]}
+
+
+============================== 13:36:46.143189 | e938f376-4278-472e-b914-a372cca8093f ==============================
+[0m13:36:46.143189 [info ] [MainThread]: Running with dbt=1.7.14
+[0m13:36:46.144491 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'version_check': 'True', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_order_items"}', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:36:47.593168 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e938f376-4278-472e-b914-a372cca8093f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb8166fce60>]}
+[0m13:36:47.703039 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e938f376-4278-472e-b914-a372cca8093f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb8167b1220>]}
+[0m13:36:47.704653 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m13:36:47.718035 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m13:36:47.764564 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:36:47.765653 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:36:47.776505 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e938f376-4278-472e-b914-a372cca8093f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb81789f260>]}
+[0m13:36:47.792693 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e938f376-4278-472e-b914-a372cca8093f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb815fd2450>]}
+[0m13:36:47.793598 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 433 macros, 0 groups, 0 semantic models
+[0m13:36:47.794814 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e938f376-4278-472e-b914-a372cca8093f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb8165738f0>]}
+[0m13:36:47.796909 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m13:36:47.820860 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m13:36:47.821821 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT column_name, 
+           COUNT(*) AS total_rows,
+           COUNT() AS filled_rows,
+           (COUNT() * 100.0) / COUNT(*) AS fill_rate
+    FROM data_sample.pizza_order_items
+    GROUP BY column_name;
+[0m13:36:47.822600 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:36:48.182314 [debug] [MainThread]: Snowflake adapter: Snowflake query id: 01b43110-0202-a9af-0002-461e0016b2b6
+[0m13:36:48.183191 [debug] [MainThread]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+[0m13:36:48.184066 [debug] [MainThread]: Snowflake adapter: Error running SQL: macro mark_columns
+[0m13:36:48.184991 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m13:36:48.186049 [debug] [MainThread]: On macro_mark_columns: Close
+[0m13:36:48.285058 [error] [MainThread]: Encountered an error while running operation: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+[0m13:36:48.291871 [debug] [MainThread]: Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 291, in exception_handler
+    yield
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 80, in add_query
+    cursor.execute(sql, bindings)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 1 at position 7
+invalid identifier 'COLUMN_NAME'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 58, in run
+    self._run_unsafe(package_name, macro_name)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/task/run_operation.py", line 43, in _run_unsafe
+    res = adapter.execute_macro(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1112, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 39, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 310, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 472, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 507, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 563, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 483, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 66, in add_query
+    with self.exception_handler(sql):
+  File "/home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 317, in exception_handler
+    raise DbtDatabaseError(msg)
+dbt.exceptions.DbtDatabaseError: Database Error
+  000904 (42000): SQL compilation error: error line 1 at position 7
+  invalid identifier 'COLUMN_NAME'
+
+[0m13:36:48.295495 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_wall_clock_time": 2.2425315, "process_user_time": 5.569504, "process_kernel_time": 0.763496, "process_mem_max_rss": "196696", "process_in_blocks": "98864", "process_out_blocks": "928", "command_success": false}
+[0m13:36:48.296871 [debug] [MainThread]: Command `dbt run-operation` failed at 13:36:48.296477 after 2.24 seconds
+[0m13:36:48.297986 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m13:36:48.299030 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb84b8ea270>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb815f74c50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb815f89d60>]}
+[0m13:36:48.300144 [debug] [MainThread]: Flushing usage events
+[0m13:51:26.861274 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3ec55769f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3ec5575250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3ec5575c40>]}
+
+
+============================== 13:51:26.865179 | f10d8e14-c08f-4874-8aff-b9aa5c518a3a ==============================
+[0m13:51:26.865179 [info ] [MainThread]: Running with dbt=1.7.14
+[0m13:51:26.866010 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run-operation convert_timestamp_to_timezone', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:51:27.854932 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f10d8e14-c08f-4874-8aff-b9aa5c518a3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3ec21b3440>]}
+[0m13:51:27.925599 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f10d8e14-c08f-4874-8aff-b9aa5c518a3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3ec7961ac0>]}
+[0m13:51:27.926889 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m13:51:27.935388 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m13:51:27.962760 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:51:27.963349 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:51:27.969727 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f10d8e14-c08f-4874-8aff-b9aa5c518a3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e942f5430>]}
+[0m13:51:27.979111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f10d8e14-c08f-4874-8aff-b9aa5c518a3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e8ff52870>]}
+[0m13:51:27.979807 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 434 macros, 0 groups, 0 semantic models
+[0m13:51:27.980436 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f10d8e14-c08f-4874-8aff-b9aa5c518a3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3ec5575d90>]}
+[0m13:51:27.981456 [debug] [MainThread]: Acquiring new snowflake connection 'macro_convert_timestamp_to_timezone'
+[0m13:51:27.996009 [debug] [MainThread]: Using snowflake connection "macro_convert_timestamp_to_timezone"
+[0m13:51:27.996606 [debug] [MainThread]: On macro_convert_timestamp_to_timezone: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_convert_timestamp_to_timezone"} */
+SELECT table_name, column_name
+FROM information_schema.columns
+WHERE table_schema = 'HACKATHON_WH'
+  AND data_type = 'Timestamp_NTZ';
+[0m13:51:27.997230 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:51:29.110308 [debug] [MainThread]: SQL status: SUCCESS 0 in 1.0 seconds
+[0m13:51:29.112378 [debug] [MainThread]: On macro_convert_timestamp_to_timezone: Close
+[0m13:51:29.177192 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_success": true, "command_wall_clock_time": 2.3706856, "process_user_time": 3.501753, "process_kernel_time": 0.584961, "process_mem_max_rss": "195896", "process_out_blocks": "920", "process_in_blocks": "0"}
+[0m13:51:29.178310 [debug] [MainThread]: Command `dbt run-operation` succeeded at 13:51:29.178039 after 2.37 seconds
+[0m13:51:29.179051 [debug] [MainThread]: Connection 'macro_convert_timestamp_to_timezone' was properly closed.
+[0m13:51:29.179830 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e8ff52600>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3e942f71d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3ec5bc1ee0>]}
+[0m13:51:29.180669 [debug] [MainThread]: Flushing usage events
+[0m14:17:12.988470 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa313fe3230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa314fb52e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa3143aa660>]}
+
+
+============================== 14:17:12.993477 | f3cc6299-638e-4bd0-9c79-53b192376712 ==============================
+[0m14:17:12.993477 [info ] [MainThread]: Running with dbt=1.7.14
+[0m14:17:12.994297 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt run-operation convert_timestamp_to_timezone', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m14:17:14.282157 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f3cc6299-638e-4bd0-9c79-53b192376712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa2dead5970>]}
+[0m14:17:14.356771 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f3cc6299-638e-4bd0-9c79-53b192376712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa2dea2d970>]}
+[0m14:17:14.358153 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m14:17:14.367380 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m14:17:14.396405 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:17:14.397070 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:17:14.403816 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f3cc6299-638e-4bd0-9c79-53b192376712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa2deb62ba0>]}
+[0m14:17:14.413905 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f3cc6299-638e-4bd0-9c79-53b192376712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa2deaa2e40>]}
+[0m14:17:14.414727 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 434 macros, 0 groups, 0 semantic models
+[0m14:17:14.415407 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f3cc6299-638e-4bd0-9c79-53b192376712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa3109098e0>]}
+[0m14:17:14.416479 [debug] [MainThread]: Acquiring new snowflake connection 'macro_convert_timestamp_to_timezone'
+[0m14:17:14.431648 [debug] [MainThread]: Using snowflake connection "macro_convert_timestamp_to_timezone"
+[0m14:17:14.432318 [debug] [MainThread]: On macro_convert_timestamp_to_timezone: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_convert_timestamp_to_timezone"} */
+SELECT table_name, column_name
+FROM information_schema.columns
+WHERE table_schema = 'HACKATHON_WH'
+  AND data_type = 'Timestamp_NTZ';
+[0m14:17:14.432901 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:17:15.426014 [debug] [MainThread]: SQL status: SUCCESS 0 in 1.0 seconds
+[0m14:17:15.428199 [debug] [MainThread]: On macro_convert_timestamp_to_timezone: Close
+[0m14:17:15.499936 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_success": true, "command_wall_clock_time": 2.5678356, "process_user_time": 3.587019, "process_kernel_time": 0.663818, "process_mem_max_rss": "195592", "process_in_blocks": "318656", "process_out_blocks": "920"}
+[0m14:17:15.500957 [debug] [MainThread]: Command `dbt run-operation` succeeded at 14:17:15.500699 after 2.57 seconds
+[0m14:17:15.501636 [debug] [MainThread]: Connection 'macro_convert_timestamp_to_timezone' was properly closed.
+[0m14:17:15.502337 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa3143ef2f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa2debbf860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa2debbdb80>]}
+[0m14:17:15.503162 [debug] [MainThread]: Flushing usage events
+[0m14:19:05.796177 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fae03277530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fae03713f20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fae032751c0>]}
+
+
+============================== 14:19:05.799761 | df5f6fb0-ec9e-4f91-add3-f1c654b66e15 ==============================
+[0m14:19:05.799761 [info ] [MainThread]: Running with dbt=1.7.14
+[0m14:19:05.800674 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_order_items"}', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m14:19:06.828469 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'df5f6fb0-ec9e-4f91-add3-f1c654b66e15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fadff9a7da0>]}
+[0m14:19:06.901722 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'df5f6fb0-ec9e-4f91-add3-f1c654b66e15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fadcf31dc70>]}
+[0m14:19:06.902906 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m14:19:06.911420 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m14:19:06.940062 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:19:06.940779 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:19:06.947839 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'df5f6fb0-ec9e-4f91-add3-f1c654b66e15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fae0361e300>]}
+[0m14:19:06.959242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'df5f6fb0-ec9e-4f91-add3-f1c654b66e15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fadcdd42210>]}
+[0m14:19:06.960006 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 434 macros, 0 groups, 0 semantic models
+[0m14:19:06.960635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'df5f6fb0-ec9e-4f91-add3-f1c654b66e15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fadd47ebc50>]}
+[0m14:19:06.961709 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m14:19:06.977000 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m14:19:06.977660 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT column_name
+    FROM information_schema.columns
+    WHERE table_name = 'pizza_order_items'
+    AND table_schema = 'data_sample';
+[0m14:19:06.978200 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:19:07.890977 [debug] [MainThread]: SQL status: SUCCESS 0 in 1.0 seconds
+[0m14:19:07.893187 [debug] [MainThread]: On macro_mark_columns: Close
+[0m14:19:07.958927 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_success": true, "command_wall_clock_time": 2.2163024, "process_user_time": 3.651679, "process_kernel_time": 0.824442, "process_mem_max_rss": "195992", "process_in_blocks": "20376", "process_out_blocks": "928"}
+[0m14:19:07.959856 [debug] [MainThread]: Command `dbt run-operation` succeeded at 14:19:07.959619 after 2.22 seconds
+[0m14:19:07.960433 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m14:19:07.961036 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fae03713f20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fadcf5e9160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fae036fd610>]}
+[0m14:19:07.961635 [debug] [MainThread]: Flushing usage events
+[0m14:19:56.792347 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57e7622f30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57e78c2ff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57e78c1d60>]}
+
+
+============================== 14:19:56.795888 | 095987be-297f-4371-a59c-3cf2e5392d58 ==============================
+[0m14:19:56.795888 [info ] [MainThread]: Running with dbt=1.7.14
+[0m14:19:56.796694 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/workspace/DBT-Hackathon-2024', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/workspace/DBT-Hackathon-2024/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run-operation mark_columns --args {"table_name": "pizza_order_items"}', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m14:19:57.770794 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '095987be-297f-4371-a59c-3cf2e5392d58', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57b2109670>]}
+[0m14:19:57.843035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '095987be-297f-4371-a59c-3cf2e5392d58', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57b28211f0>]}
+[0m14:19:57.844134 [info ] [MainThread]: Registered adapter: snowflake=1.7.3
+[0m14:19:57.852396 [debug] [MainThread]: checksum: ccbe0bccecb23e0b0bcca76d525b7d642e28acd474046360f7f33e61c6a2b781, vars: {}, profile: , target: , version: 1.7.14
+[0m14:19:57.879412 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:19:57.880014 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:19:57.886625 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '095987be-297f-4371-a59c-3cf2e5392d58', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57b304b7d0>]}
+[0m14:19:57.895434 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '095987be-297f-4371-a59c-3cf2e5392d58', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57b1efa240>]}
+[0m14:19:57.896148 [info ] [MainThread]: Found 3 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 434 macros, 0 groups, 0 semantic models
+[0m14:19:57.896776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '095987be-297f-4371-a59c-3cf2e5392d58', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57b2172de0>]}
+[0m14:19:57.897802 [debug] [MainThread]: Acquiring new snowflake connection 'macro_mark_columns'
+[0m14:19:57.913240 [debug] [MainThread]: Using snowflake connection "macro_mark_columns"
+[0m14:19:57.913893 [debug] [MainThread]: On macro_mark_columns: /* {"app": "dbt", "dbt_version": "1.7.14", "profile_name": "Hackathon", "target_name": "Snowflake_DB", "connection_name": "macro_mark_columns"} */
+SELECT column_name
+    FROM information_schema.columns
+    WHERE table_name = 'pizza_order_items'
+    AND table_schema = 'data_sample';
+[0m14:19:57.914492 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:19:58.930175 [debug] [MainThread]: SQL status: SUCCESS 0 in 1.0 seconds
+[0m14:19:58.932314 [debug] [MainThread]: On macro_mark_columns: Close
+[0m14:19:59.000111 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_success": true, "command_wall_clock_time": 2.2634442, "process_user_time": 3.602249, "process_kernel_time": 0.494505, "process_mem_max_rss": "195560", "process_in_blocks": "14920", "process_out_blocks": "920"}
+[0m14:19:59.001037 [debug] [MainThread]: Command `dbt run-operation` succeeded at 14:19:59.000818 after 2.26 seconds
+[0m14:19:59.001598 [debug] [MainThread]: Connection 'macro_mark_columns' was properly closed.
+[0m14:19:59.002204 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57e7a3f110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57b269de80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f57b20a1460>]}
+[0m14:19:59.002861 [debug] [MainThread]: Flushing usage events
